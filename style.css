@@ -1,0 +1,70 @@
+:root {
+    --bg-color: #fdfafb;
+    --spotify-black: #181818;
+    --spotify-green: #1DB954;
+    --text-pink: #d63384;
+}
+
+body {
+    margin: 0; background-color: var(--bg-color);
+    font-family: 'Quicksand', sans-serif;
+    height: 100vh; overflow: hidden;
+}
+
+.screen {
+    position: absolute; width: 100%; height: 100%;
+    display: none; flex-direction: column;
+    justify-content: center; align-items: center;
+}
+
+.active { display: flex; }
+
+/* Contador de Tiempo */
+#contador-container {
+    margin-top: 25px;
+    padding: 15px;
+    border-top: 1px solid #eee;
+    text-align: left;
+}
+
+.contador-titulo {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+#reloj {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #444;
+}
+
+/* Animaciones de Imágenes */
+.image-box { opacity: 0; transition: transform 2s ease-out, opacity 2s ease-out; }
+.box-visible { opacity: 1; transform: scale(1) translateY(0) !important; }
+#box-arbol { width: 380px; transform: scale(0.8) translateY(20px); }
+#box-final { width: 450px; transform: scale(0.9); }
+
+/* Reproductor Spotify */
+.spotify-player {
+    position: absolute; bottom: 30px; width: 90%; max-width: 450px;
+    background-color: var(--spotify-black); padding: 12px;
+    border-radius: 12px; color: white; z-index: 100;
+}
+.player-top { display: flex; align-items: center; gap: 15px; }
+.album-cover { width: 50px; height: 50px; border-radius: 4px; }
+.song-info { flex-grow: 1; }
+.song-title { font-weight: bold; font-size: 0.9rem; }
+.artist { font-size: 0.75rem; color: #b3b3b3; }
+#masterPlay { font-size: 1.5rem; cursor: pointer; }
+.progress-container { width: 100%; height: 4px; background: #4f4f4f; margin-top: 10px; }
+.progress-bar { width: 0%; height: 100%; background: var(--spotify-green); }
+
+/* Otros */
+.static-flower { width: 180px; cursor: pointer; animation: heartbeat 2s infinite; }
+@keyframes heartbeat { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+#maquina-escribir { font-family: 'Dancing Script', cursive; font-size: 1.5rem; color: #333; line-height: 1.5; }
+#texto-final { font-family: 'Dancing Script', cursive; color: var(--text-pink); font-size: 2.8rem; }
+.hidden_el { opacity: 0; pointer-events: none; transition: 1.5s; }
+.visible_el { opacity: 1; pointer-events: all; }
+button { background: var(--text-pink); color: white; border: none; padding: 12px 25px; border-radius: 25px; cursor: pointer; margin-top: 10px; }
